@@ -312,6 +312,10 @@ textarea.field {
   text-transform: uppercase;
 }
 
+.news-tag-link:hover {
+   text-decoration: underline;
+}
+
 .news-img {
   min-width: 380px;
   object-fit: contain;
@@ -436,6 +440,10 @@ textarea.field {
   font-size: 13px;
 }
 
+textarea {
+  resize: none;
+}
+
 .field:focus {
   outline: none;
   border: 1px solid #b59f5b;
@@ -495,6 +503,11 @@ textarea.field {
   text-transform: uppercase;
 }
 
+
+.tag-list-item:hover {
+  border: 3px solid #b59f5b;
+}
+
 .topics-list {
   margin-top: 25px;
   list-style-type: none;
@@ -511,6 +524,10 @@ textarea.field {
 .topics-link {
   color: #0f0d0e;
   text-decoration: none;
+}
+
+.topics-link:hover {
+  color: #b59f5b;
 }
 
 .topic-marker {
@@ -667,7 +684,7 @@ textarea.field {
   }
 }
 
-/* карточки трендов */
+/* карточки трендов в 4 колонки*/
 @media (min-width: 1200px) {
 
   .trend-card-wrapper:nth-child(n+2) {
