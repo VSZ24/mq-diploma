@@ -146,7 +146,7 @@ textarea.field {
   font-family: OpenSans, sans-serif;
 }
 
-.header:after, .trend-card-wrapper:after {
+.header:after {
   content: "";
   position: absolute;
   top: 0;
@@ -206,10 +206,6 @@ textarea.field {
   text-align: center;
 }
 
-.trend-section-wrapper {
-  width: 100%;
-  margin-top: 57px;
-}
 
 .main-section-title {
   text-align: center;
@@ -218,57 +214,106 @@ textarea.field {
   text-transform: uppercase;
 }
 
-.trends {
-  display: flex;
-  justify-content: space-between;
-}
 
-.trend-card-wrapper {
-  background-color: #000000;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  
-  position: relative;
-  z-index: 0;
+/*TRENDS*/
 
-  display: flex;
-  align-items: flex-end;
 
-  width: 25%;
-  min-height: 320px;
-  padding: 15px 20px;
-}
 
-.trend-garden {
-  background-image: url("../images/trend1.jpg");
-}
-
-.trend-cheese {
-  background-image: url("../images/trend2.jpg");
-}
-
-.trend-mountain {
-  background-image: url("../images/trend3.jpg");
-}
-
-.trend-lemon {
-  background-image: url("../images/trend4.jpg");
-}
-
-.trend-card {
-  border: 3px solid #b59f5b;
-  padding: 33px 33px;
-  flex-grow: 1;
+.trend-section-wrapper {
+    margin-top: 65px;
+    width: 100%;
+    max-width: 1660px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .trend-title {
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 1.2;
-
-  margin-top: 6px;
+    font-weight: 700;
+    font-size: 20px;
 }
+
+.trends {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.trend-card-wrapper {
+    display: flex;
+    width: 25%;
+    height: 348px;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    border: 1px solid #ffffff;
+    background-color: #444444;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.trend-card-wrapper::before {
+    content: '';
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.trend-garden {
+    background-image: url('../images/trend1.jpg');
+}
+
+.trend-cheese {
+    background-image: url('../images/trend2.jpg');
+}
+
+.trend-mountain {
+    background-image: url('../images/trend3.jpg');
+}
+
+.trend-lemon {
+    background-image: url('../images/trend4.jpg');
+}
+
+.trend-card {
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 40px 15px 35px;
+    border: 4px solid #b59f5b;
+    position: absolute;
+    z-index: 10;
+}
+
+.trend-title {
+    margin-top: 5px;
+}
+
+.trend-title a {
+    font-size: 20px;
+    color: #ffffff;
+    transition: color 0.2s linear;
+}
+
+.trend-title a:hover {
+    color: #b59f5b;
+}
+
+
+/*TRENDS*/
+
+
+
 
 .main-wrapper {
   max-width: 1200px;
@@ -440,7 +485,7 @@ textarea.field {
   font-size: 13px;
 }
 
-textarea {
+.textarea {
   resize: none;
 }
 
@@ -684,13 +729,23 @@ textarea {
   }
 }
 
-/* карточки трендов в 4 колонки*/
-@media (min-width: 1200px) {
 
-  .trend-card-wrapper:nth-child(n+2) {
-    margin-left: 4px;
-  }
+/* карточки трендов в 2 колонки при пейзажной ориентации*/
+
+@media (max-width: 640px) and (orientation: landscape) {
+    .trend-card-wrapper {
+        width: 50%;
+    }
 }
+
+
+@media (min-width: 641px) and (max-width: 1200px) and (orientation: portrait) {
+    .trend-card-wrapper {
+      width: 50%;
+    }
+}
+
+/* Media 1199px */
 
 @media (max-width: 1199px) {
   
@@ -751,6 +806,30 @@ textarea {
   }
 }
 
+@media (max-width: 1199px) {
+
+.trend-section-wrapper {
+        margin-top: 50px;
+    }
+
+    .trend-title {
+        font-size: 18px;
+    }
+
+    .trends {
+        margin-top: 15px;
+    }
+
+    .trend-card {
+        padding: 10px 2px;
+    }
+
+    .trend-title a {
+        font-size: 16px;
+    }
+}
+
+
 @media (min-width: 641px) and (max-width: 1199px) {
 
   .header-content, .main-wrapper, .footer {
@@ -776,32 +855,6 @@ textarea {
     line-height: 1.4;
   }
 
-  .trend-section-wrapper {
-    margin-top: 45px;
-  }
-
-  .trend-card-wrapper {
-    flex-basis: 49%;
-    flex-grow: 1;
-    min-height: 247px;
-    padding: 15px 19px;
-    margin-top: 0; 
-    margin-bottom: 4px;
-  }
-
- .trend-card-wrapper:nth-child(2n+1) {
-    margin-right: 4px;
-  }
-
-  .trends {
-    margin-top: 18px;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-
-  .trend-card {
-    padding: 29px 29px;
-  }
 
   .main-section-title {
     font-size: 18px;
@@ -921,6 +974,8 @@ textarea {
   }
 }
 
+/* Media 640px */
+
 @media (max-width: 640px) {
 
   .feedback-form {
@@ -931,7 +986,7 @@ textarea {
     top: -32px;
   }
 
-  textarea.field {
+  .textarea.field {
   resize: none;
   }
 
@@ -943,7 +998,7 @@ textarea {
     margin: 0 15px;
   }
 
-  .header-content, .main-wrapper, .footer, .trend-card-wrapper {
+  .header-content, .main-wrapper, .footer {
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -978,9 +1033,6 @@ textarea {
     line-height: 1.4;
   }
 
-  .trend-section-wrapper {
-    margin-top: 40px;
-  }
 
   .main {
     width: 100%;
@@ -994,29 +1046,32 @@ textarea {
     margin-top: 8px;
   }
 
-  .trends, .main-wrapper, .news, .craft {
+  .main-wrapper, .news, .craft {
     flex-direction: column;
   }
 
-  .trend-card-wrapper {
-    width: 100%;
-    min-height: 232px;
-    margin-top: 3px;
-  }
 
-  .trend-card {
-    padding: 26px 20px;
-  }
-
-  .trend-title {
-    margin-top: 9px;
-    font-size: 16px;
-    line-height: 1.25;
-  }
 
   .main-wrapper {
     margin-top: 45px;
   }
+
+
+  .trend-section-wrapper {
+        margin-top: 45px;
+    }
+
+    .trend-title {
+        font-size: 16px;
+    }
+
+    .trends {
+        margin-top: 25px;
+    }
+
+    .trend-card-wrapper {
+        width: 100%;
+    }
 
   .news {
     border-bottom: 3px #eeeeee solid;
@@ -1060,7 +1115,7 @@ textarea {
 
   .section-title {
     font-size: 16px;
-  }
+  } 
 
   .side-menu-section:nth-child(n+2) {
     margin-top: 40px;
@@ -1097,3 +1152,9 @@ textarea {
     margin: 45px auto 45px;
   }
 }
+
+@media (max-width: 640px) and (orientation: landscape) {
+    .trend-card-wrapper {
+        width: 50%;
+    }
+  }
